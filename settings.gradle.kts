@@ -1,1 +1,1 @@
-rootProject.name = "spring-jpa-example"
+rootProject.name = "kotlin-spring-jpa"
