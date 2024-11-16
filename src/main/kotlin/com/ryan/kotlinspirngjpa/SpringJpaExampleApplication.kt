@@ -1,4 +1,4 @@
-package com.ryan.springjpaexample
+package com.ryan.kotlinspirngjpa
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
