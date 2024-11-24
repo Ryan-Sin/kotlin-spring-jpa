@@ -10,6 +10,7 @@ fun main() {
 
     createMember(em)
     val memberEntity = findMemberByName(em)
+//    setDetach(memberEntity, em)
     updateMember(memberEntity, em)
     removeMember(memberEntity, em)
 
@@ -56,4 +57,8 @@ fun removeMember(member: MemberEntity, em: EntityManager) {
     } catch (e: Exception) {
         tx.rollback()
     }
+}
+
+fun setDetach(member: MemberEntity, em: EntityManager) {
+    em.detach(member)
 }
