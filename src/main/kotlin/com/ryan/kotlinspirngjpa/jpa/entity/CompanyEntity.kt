@@ -37,7 +37,7 @@ class CompanyEntity(
 
     @ManyToMany
     @JoinTable(
-        name = "company_category",
+        name = "company_category_mapping",
         joinColumns = [JoinColumn(name = "company_id")],
         inverseJoinColumns = [JoinColumn(name = "category_id")]
     )
