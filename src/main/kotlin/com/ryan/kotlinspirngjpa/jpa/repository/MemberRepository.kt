@@ -31,7 +31,7 @@ class MemberRepository(private val em: EntityManager) {
         }
     }
 
-    fun deleteById(member: MemberEntity) {
+    fun delete(member: MemberEntity) {
         this.em.transaction.begin()
         try {
             this.em.remove(member)
