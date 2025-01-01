@@ -76,7 +76,6 @@ class BasicTest {
 
         // then(검증): 어떠한 결과가 나와야 한다.
         val updateMember = this.memberRepository.findById(1L)!!
-
         assertEquals(findMember.name, updateMember.name)
     }
 
@@ -90,7 +89,7 @@ class BasicTest {
         val findMember = this.memberRepository.findById(1L)
 
         // when(실행): 어떠한 함수를 실행하면
-        this.memberRepository.deleteById(findMember!!)
+        this.memberRepository.delete(findMember!!)
 
         // then(검증): 어떠한 결과가 나와야 한다.
         val deletedUser = this.memberRepository.findById(1L)

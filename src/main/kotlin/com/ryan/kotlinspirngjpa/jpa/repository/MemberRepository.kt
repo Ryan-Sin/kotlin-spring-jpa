@@ -31,7 +31,7 @@ class MemberRepository(private val em: EntityManager) {
         }
     }
 
-    fun deleteById(member: MemberEntity) {
+    fun delete(member: MemberEntity) {
         this.em.transaction.begin()
         try {
             this.em.remove(member)
@@ -39,5 +39,9 @@ class MemberRepository(private val em: EntityManager) {
         } catch (e: Exception) {
             this.em.transaction.rollback()
         }
+    }
+
+    fun setDetach(member: MemberEntity) {
+        this.em.detach(member)
     }
 }
