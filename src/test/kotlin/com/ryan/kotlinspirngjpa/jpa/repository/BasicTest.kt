@@ -76,7 +76,6 @@ class BasicTest {
 
         // then(검증): 어떠한 결과가 나와야 한다.
         val updateMember = this.memberRepository.findById(1L)!!
-
         assertEquals(findMember.name, updateMember.name)
     }
 
