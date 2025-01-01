@@ -13,15 +13,24 @@ class MemberEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    @Column(name = "name", nullable = false, unique = true, length = 255)
+    @Column(name = "email", nullable = false, unique = true)
+    val email: String,
+
+    @Column(name = "password", nullable = false)
+    val password: String,
+
+    @Column(name = "name", nullable = false)
     private var name: String,
 
-    @Enumerated(EnumType.STRING)
-    val gender: Gender,
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_profile_id", referencedColumnName = "id")
+    val profile: MemberProfileEntity,
 
-    @Embedded
-    val address: Address
-): BaseEntity() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
+    val company: CompanyEntity
+
+) : BaseEntity() {
     fun getName() = this.name
     fun setName(name: String) {
         this.name = name
